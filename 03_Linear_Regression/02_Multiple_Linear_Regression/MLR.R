@@ -1,5 +1,6 @@
 # importing data
-df <- read.csv("D:/Programming/Machine Learning/Machine Learning with Python and R/R/Data_Preprocessing/House_Price.csv", header = TRUE)
+df <- read.csv("D:/Programming/Machine Learning/Machine Learning with Python and R/R/03_Linear_Regression/02_Multiple_Linear_Regression/House_Price.csv",
+               header = TRUE)
 
 # view content
 View(df)
@@ -190,26 +191,37 @@ round(cor(df), 2)
 df <- df[,-16]
 View(df)
 
-# --- Simple Linear Regression ---#
 
-# lm(dependent variable ~ Independent Variables)
-simpleModel <- lm(price~room_num, data=df)
-summary(simpleModel)
+# --- Multiple Linear Regression --- #
+
+# running model with all the variable available in dataset
+mlr <- lm(price~., data=df)
+summary(mlr)
 
 # --- Result --- #
-# Intercept is our Beta0 = -34.6592
-# room_num is our Beta1 = 9.0997
-# standard error are present
-# T value = (Beta-0)/SE
-# P Value[Probability] = Here from P value which is '***', so that means we are at level 0.001 and so that we are
-# 99% sure that room_num is significantly impacting price.
-# So for If you increase room_num value by 1 unit, our house_price will increase by 9 unit
-# RSE [Residual Standard Error] = 6.597 on 504 degrees.
-# R-Squared = 0.4848
-# Adjusted R-Squared = 0.4838
-# we can improve R-Square value by creating new variables.
+# we have beta values for all the variables
+# Standard Error
+# T Value
+# P value
+# we are getting 6 variables with stars
+# 5 of them are 99% sure that they are significantly impacting price variable
+# 2 of them are 95% sure that they are impacting price variable
+# others are not more significant 
+# RSE = 4.925
+# Degree of Freedom = 490
+# R-Squared = 0.7208
+# Adjusted R-Squared = 0.7123
+# this means 72% variance in the house price data explain by this model
+# F-statistic = 84.34
+# P value is very small and so for we can say that this variables are impacting price variable
 
-# plot the relationship
-plot(df$room_num, df$price)
-# abline will draw the regression line on plot
-abline(simpleModel)
+
+# In terms of business
+# ----
+# we can see from coefficients of air_qual, air_qaul impacts the price negatively and it's beta value is very large
+# so one unit changes in air_qual [increase] than reduce the house price by 15 units
+# means if air_qual is bad in some are, it will affect the price of houses in that area as well.
+
+# ----
+# similarly room_num has positive impact
+# so room_num increase it will increase the house price as well.
