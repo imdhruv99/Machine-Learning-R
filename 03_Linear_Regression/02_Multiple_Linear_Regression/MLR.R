@@ -152,7 +152,8 @@ View(df)
 # we will do that by creating dummy variables.
 
 # we need to install package to create dummy variable
-install.packages("dummies")
+# remove comment below from line to install package
+# install.packages("dummies")
 
 # creating dummy variable
 df <- dummy.data.frame(df)
