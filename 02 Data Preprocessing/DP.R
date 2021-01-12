@@ -171,12 +171,12 @@ round(cor(df), 2)
 
 #### from matrix we can identify below things
 # --------------------------------------------------
-# price vs room_num has very high correlation coefficiant and so that it will be very important in our analysis.
+# price vs room_num has very high correlation coefficient and so that it will be very important in our analysis.
 # price vs poor_prop highly negatively correlated and so that it will be very important in our analysis.
 
-# price vs n_hot_rooms has very low correlation coefficiant and so that it will not be very important.
-# price vs rainfall has very low correlation coefficiant and so that it will not be very important.
-# price vs waterbody_river has very low correlation coefficiant and so that it will not be very important.
+# price vs n_hot_rooms has very low correlation coefficient and so that it will not be very important.
+# price vs rainfall has very low correlation coefficient and so that it will not be very important.
+# price vs waterbody_river has very low correlation coefficient and so that it will not be very important.
 
 # The correlation between air quality and parks is zero point nine one.
 # This means that these two independent variables are highly correlated, And if we take both of these variables for our analysis, this may lead to multicolinearity.
