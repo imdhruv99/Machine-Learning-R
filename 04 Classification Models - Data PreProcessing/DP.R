@@ -54,5 +54,4 @@ library(dummies)
 df <- dummy.data.frame(df)
 df <- df[,-8]
 df <- df[,-13]
-
-write.table(df, file = 'preprocessed_HousePrice.csv', sep="\t", row.names = F)
+write.csv(df, "preprocessed_HousePrice.csv", row.names = FALSE)
