@@ -40,3 +40,15 @@ set.seed (1)
 boosting <- gbm(Collection~Budget+Trailer_views, data = train, distribution="gaussian",n.trees =5000 , interaction.depth =10, shrinkage =0.1,verbose =F)
 test$boost <- predict (boosting, test,n.trees =1000)
 MSE2boost <- mean((test$boost - test$Collection)^2)
+
+
+### XGBoost ###
+# install.packages('xgboost')
+library(xgboost)
+library(data.table)
+data(agaricus.train, package='xgboost')
+data(agaricus.test, package='xgboost')
+train <- agaricus.train
+test <- agaricus.test
+bst <- xgboost(data = train$data, label = train$label, max_depth = 2, eta = 1,nrounds = 2, objective = "binary:logistic")
+pred <- predict(bst, test$data)
